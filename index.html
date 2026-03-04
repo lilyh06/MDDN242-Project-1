@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Website</title>
+
+  <meta name="description" content="A short description of your page goes here.">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1 class="main-title">Basic Website</h1>
+  <h2 class="sub-title">subheading?</h2>
+</header>
+
+
+  <nav aria-label="Primary">
+    <ul>
+      <li><a href="#" aria-current="page">Home</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+    <div class="underline" aria-hidden="true"></div>
+    <p>Your content goes here.</p>
+
+
+  <footer>
+    <small>&copy; <span id="year"></span> Lily Hagen</small>
+  </footer>
+
+  <script>
+    // Auto-update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Make all buttons show "hello "
+    document.querySelectorAll(".main-button").forEach(button => {
+      button.addEventListener("click", () => {
+        alert("hello");
+      });
+    });
+  </script>
+
+  <script src="script.js"></script>
+
+  <img src="bubble.png" class="float-image">
+
+
+<div class="croc-wrapper">
+  <div class="croc-panel">
+    <img src="crocodile.png" class="croc" alt="Crocodile">
+
+    <div class="croc-buttons">
+      <button class="main-button" id="btn-one">One</button>
+      <button class="main-button" id="btn-two">Two</button>
+      <button class="main-button" id="btn-three">Three</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Example functionality – change these to whatever you want
+  document.getElementById('btn-one').addEventListener('click', function () {
+    alert('Button One clicked!');
+  });
+
+  document.getElementById('btn-two').addEventListener('click', function () {
+    alert('Button Two clicked!');
+  });
+
+  document.getElementById('btn-three').addEventListener('click', function () {
+    alert('Button Three clicked!');
+  });
+</script>
+
+
+
+
+
+</body>
+</html>

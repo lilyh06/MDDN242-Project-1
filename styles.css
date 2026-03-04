@@ -1,0 +1,217 @@
+@import url("https://use.typekit.net/abc1def.css");
+
+
+
+
+:root {
+  /* Page + layout */
+  --color-bg: hsl(0, 0%, 100%);
+  --color-text: #ffffff;
+
+  /* Typography */
+  --font-main: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-weight-strong: 600;
+
+  /* Buttons */
+  --button-bg: #ffffff;
+  --button-text: hsl(346, 75%, 63%);
+  --button-border: #ffffff00;
+
+  /* Button hover */
+  --button-hover-bg: rgb(88, 0, 75);
+  --button-hover-border: rgba(147, 112, 216, 0);
+  --button-hover-text: #000000;
+
+  /* Decorative elements */
+  --color-underline: #d7d7f500;
+
+  /* Focus outline */
+  --focus-outline: currentColor;
+
+  /* Background image variable */
+  --bg-image: url("tree.jpg");
+
+  /*Cursor Image*/
+ --cursor-image: url("orangefish.png");
+}
+/* Page */
+body {
+  margin: 0;
+  padding: 40px;
+  font-family: var(--font-main);
+  font-weight: var(--font-weight-strong);
+
+  /* solid purple background */
+  background: #FBB03B;  /* <- put your purple colour here */
+
+  cursor: url("orangefish.png") 16 16, auto;
+}
+
+
+/* fish buttons */
+.main-button {
+  width: 140px; /* adjust to match your fishblue.png size */
+  height: 140px;
+
+  background: url("fishblue.png") no-repeat center center / contain;
+  border: none;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: var(--font-main);
+  font-weight: var(--font-weight-strong);
+  font-size: 1rem;
+  color: var(--button-text);
+
+  cursor: url("orangefish.png") 16 16, pointer;
+
+  /* Remove old square-button colors */
+  background-color: transparent;
+}
+
+
+/* Floating + bobbing animation */
+.float-image {
+  position: fixed;
+  top: 20%;
+  left: 100vw;                 /* start just off the right edge */
+  width: 60px;
+  pointer-events: none;
+  z-index: 9999;
+
+  animation:
+    swim-horizontal 12s linear infinite,
+    swim-bob 3s ease-in-out infinite;
+}
+
+/* Move across the entire screen width responsively */
+@keyframes swim-horizontal {
+  0% {
+    transform: translateX(0) translateY(-50%);
+  }
+  100% {
+    transform: translateX(-120vw) translateY(-50%);
+  }
+}
+
+/* Gentle up/down bobbing */
+@keyframes swim-bob {
+  0% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -20px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+
+
+/* Sub-heading centered below main heading */
+.sub-title {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+
+/* Underline */
+.underline {
+  width: 200px;
+  height: 2px;
+  background: var(--color-underline);
+  margin-bottom: 50px;
+}
+
+/* Hover effect for buttons */
+.main-button:hover {
+  filter: brightness(4.4);
+}
+
+/* Stagger the heights of the three main buttons */
+.button-row .main-button:nth-child(1) {
+  margin-top: -20px;     /* highest */
+}
+
+.button-row .main-button:nth-child(2) {
+  margin-top: 60px;    /* middle */
+}
+
+.button-row .main-button:nth-child(3) {
+  margin-top: 15px;    /* slightly lower */
+}
+
+/* Crocodile slide-in container */
+.croc-wrapper {
+  position: fixed;
+  top: 50%;                     /* halfway up the screen */
+  transform: translateY(-50%);
+  right: 0;
+  width: 200px;                 /* hover zone (for the snout) */
+  height: 500px;
+  z-index: 99999;
+  pointer-events: auto;
+}
+
+/* Panel that slides (croc + buttons together) */
+.croc-panel {
+  position: absolute;
+  width: 900px;                 /* same as croc width */
+  height: 500px;
+  right: -765px;                /* 85% hidden, 15% visible */
+  transition: right 0.8s ease-out;
+}
+
+/* Crocodile image */
+.croc {
+  position: absolute;
+  width: 900px;
+  height: 100%;
+  object-fit: contain;
+  right: 0;
+  top: 0;
+  pointer-events: none;         /* so hover hits wrapper/panel */
+}
+
+/* Buttons that ride on the crocodile */
+.croc-buttons {
+  position: absolute;
+  top: 45%;                     /* vertical position along the body */
+  left: 70%;                    /* center horizontally on the croc */
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;          /* horizontal line of buttons */
+  gap: 40px;                    /* space between buttons */
+  pointer-events: auto;
+  z-index: 1;
+}
+
+
+/* Slide panel in on hover */
+.croc-wrapper:hover .croc-panel {
+  right: 0;                     /* right edge stays at screen edge */
+}
+
+
+.main-title {
+  font-family: kuhlman-vf, sans-serif;
+  font-style: normal;
+  font-variation-settings: "SEED" 0, "wdth" 100;
+
+  font-size: 4rem;
+  color: var(--color-text);
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+  letter-spacing: 2px;
+}
+
+
+
+
