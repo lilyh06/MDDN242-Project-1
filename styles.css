@@ -212,6 +212,29 @@ body {
   letter-spacing: 2px;
 }
 
+/* Bottom‑right clickable web icon */
+.corner-web-link {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999999; /* always on top */
+  display: block;
+}
+
+.corner-web-icon {
+  width: 70px;       /* adjust size here */
+  height: auto;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.corner-web-icon:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+
 
 
 
